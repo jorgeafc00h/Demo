@@ -20,26 +20,27 @@ namespace Identity.Api
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args)
-                   .MigrateDbContext<PersistedGrantDbContext>((_, __) => { })
-                .MigrateDbContext<IdentityDBContext>((context, services) =>
-                {
-                    var env = services.GetService<IHostingEnvironment>();
-                    var logger = services.GetService<ILogger<IdentityDbContextSeed>>();
-                    var settings = services.GetService<IOptions<AppSettings>>();
+			BuildWebHost(args)
+				   .MigrateDbContext<PersistedGrantDbContext>((_, __) => { })
+				.MigrateDbContext<IdentityAppContext>((context, services) =>
+				{
+					var env = services.GetService<IHostingEnvironment>();
+					var logger = services.GetService<ILogger<IdentityDbContextSeed>>();
+					var settings = services.GetService<IOptions<AppSettings>>();
 
-                    new IdentityDbContextSeed()
-                        .SeedAsync(context, env, logger, settings)
-                        .Wait();
-                })
-                .MigrateDbContext<ConfigurationDbContext>((context, services) =>
-                {
-                    var configuration = services.GetService<IConfiguration>();
+					new IdentityDbContextSeed()
+						.SeedAsync(context, env, logger, settings)
+						.Wait();
+				})
+				.Run();
+                //.MigrateDbContext<ConfigurationDbContext>((context, services) =>
+                //{
+                //    var configuration = services.GetService<IConfiguration>();
 
-                    //new ConfigurationDbContextSeed()
-                    //    .SeedAsync(context, configuration)
-                    //    .Wait();
-                }).Run();
+                //    //new ConfigurationDbContextSeed()
+                //    //    .SeedAsync(context, configuration)
+                //    //    .Wait();
+                //}).Run();
         }
 
         public static IWebHost BuildWebHost(string[] args) =>

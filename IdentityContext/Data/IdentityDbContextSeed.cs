@@ -20,7 +20,7 @@ namespace IdentityContext.Data
     {
         private readonly IPasswordHasher<ApplicationUser> _passwordHasher = new PasswordHasher<ApplicationUser>();
 
-        public async Task SeedAsync(IdentityDBContext context, IHostingEnvironment env,
+        public async Task SeedAsync(IdentityAppContext context, IHostingEnvironment env,
             ILogger<IdentityDbContextSeed> logger, IOptions<AppSettings> settings, int? retry = 0)
         {
             int retryForAvaiability = retry.Value;

@@ -9,15 +9,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{32
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{BC3876DC-69D0-4180-9AE4-B4E3E6809794}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Api", "Identity.Api\Identity.Api.csproj", "{83C8DD4D-E352-471C-945B-F069A60ACE1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identity.Api", "Identity.Api\Identity.Api.csproj", "{83C8DD4D-E352-471C-945B-F069A60ACE1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{5CDE8318-7676-408A-B115-C3C818C5571F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{5CDE8318-7676-408A-B115-C3C818C5571F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{204F57F8-850B-4DAB-8954-A22396C8723E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityContext", "IdentityContext\IdentityContext.csproj", "{4F09E4CA-CB2D-47E9-830B-CFE0E755743C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityContext", "IdentityContext\IdentityContext.csproj", "{4F09E4CA-CB2D-47E9-830B-CFE0E755743C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebHost.Customization", "WebHost.Customization\WebHost.Customization.csproj", "{4CAE7269-2BFF-4A3B-A860-195ADD6782FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebHost.Customization", "WebHost.Customization\WebHost.Customization.csproj", "{4CAE7269-2BFF-4A3B-A860-195ADD6782FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,7 +50,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{83C8DD4D-E352-471C-945B-F069A60ACE1D} = {32F10C20-E745-4123-94DA-EAB8E7DFFCC0}
+		{83C8DD4D-E352-471C-945B-F069A60ACE1D} = {204F57F8-850B-4DAB-8954-A22396C8723E}
 		{5CDE8318-7676-408A-B115-C3C818C5571F} = {BC3876DC-69D0-4180-9AE4-B4E3E6809794}
 		{204F57F8-850B-4DAB-8954-A22396C8723E} = {32F10C20-E745-4123-94DA-EAB8E7DFFCC0}
 		{4F09E4CA-CB2D-47E9-830B-CFE0E755743C} = {204F57F8-850B-4DAB-8954-A22396C8723E}

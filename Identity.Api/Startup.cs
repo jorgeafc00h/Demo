@@ -30,18 +30,20 @@ namespace Identity.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
-            // Add framework services.
-            services.AddDbContext<IdentityDBContext>(options =>
-             options.UseSqlServer(Configuration["ConnectionString"],
+			var connectionString = Configuration.GetConnectionString("DefaultConnection");
+
+			// Add framework services.
+			services.AddDbContext<IdentityAppContext>(options =>
+             options.UseSqlServer(connectionString,
                                      sqlServerOptionsAction: sqlOptions =>
                                      {
-                                         sqlOptions.MigrationsAssembly(typeof(Startup).GetTypeInfo().Assembly.GetName().Name);
+                                         sqlOptions.MigrationsAssembly(typeof(IdentityContext.IdentityAppContext).GetTypeInfo().Assembly.GetName().Name);
                                          //Configuring Connection Resiliency: https://docs.microsoft.com/en-us/ef/core/miscellaneous/connection-resiliency 
                                          sqlOptions.EnableRetryOnFailure(maxRetryCount: 15, maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null);
                                      }));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<IdentityDBContext>()
+                .AddEntityFrameworkStores<IdentityAppContext>()
                 .AddDefaultTokenProviders();
 
             services.Configure<AppSettings>(Configuration);
@@ -49,7 +51,7 @@ namespace Identity.Api
             services.AddMvc();
 
 
-            var connectionString = Configuration["ConnectionString"];
+			
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
             // Adds IdentityServer
