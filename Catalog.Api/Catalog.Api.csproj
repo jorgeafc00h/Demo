@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CatalogContext\CatalogContext.csproj" />
+    <ProjectReference Include="..\WebHost.Customization\WebHost.Customization.csproj" />
   </ItemGroup>
 
 </Project>

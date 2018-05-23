@@ -16,8 +16,10 @@ namespace CatalogContext
 
 		//public DbSet<User> Users { get; set; }
 
-		public DbSet<Product> Products { get; set; }
- 
+		public DbSet<CatalogItem> CatalogItems { get; set; }
+		public DbSet<CatalogBrand> CatalogBrands { get; set; }
+		public DbSet<CatalogType> CatalogTypes { get; set; }
+
 
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
@@ -27,7 +29,9 @@ namespace CatalogContext
 			// Add your customizations after calling base.OnModelCreating(builder);
 			//builder.ApplyConfiguration ();
 
-
+			builder.ApplyConfiguration(new CatalogBrandEntityTypeConfiguration());
+			builder.ApplyConfiguration(new CatalogTypeEntityTypeConfiguration());
+			builder.ApplyConfiguration(new CatalogItemEntityTypeConfiguration());
 		}
 	}
 }

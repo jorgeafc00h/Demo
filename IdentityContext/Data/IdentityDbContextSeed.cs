@@ -1,4 +1,4 @@
-﻿using IdentityContext.Extensions;
+﻿
 using IdentityContext.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-
+using Extensions;
 namespace IdentityContext.Data
 {
     public class IdentityDbContextSeed
