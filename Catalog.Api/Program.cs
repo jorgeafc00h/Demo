@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.DependencyInjection;
 using Models;
+using CatalogContext.Data;
 
 namespace Catalog.Api
 {

@@ -4,11 +4,16 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Models;
+using Polly;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Globalization;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CatalogContext.Data
@@ -363,6 +368,14 @@ namespace CatalogContext.Data
 			ZipFile.ExtractToDirectory(zipFileCatalogItemPictures, picturePath);
 		}
 
+
+		/// <summary>
+		/// From Polly dependency
+		/// </summary>
+		/// <param name="logger"></param>
+		/// <param name="prefix"></param>
+		/// <param name="retries"></param>
+		/// <returns></returns>
 		private Policy CreatePolicy(ILogger<CatalogContextSeed> logger, string prefix, int retries = 3)
 		{
 			return Policy.Handle<SqlException>().
