@@ -58,7 +58,7 @@ namespace Catalog.Api
 				});
 
 			// Implement Repositories
-			services.AddSingleton<IProductRepository, ProductRepository>();
+			services.AddScoped<IProductRepository, ProductRepository>();
 
 			// Register the Swagger generator, defining one or more Swagger documents
 			services.AddSwaggerGen(c =>

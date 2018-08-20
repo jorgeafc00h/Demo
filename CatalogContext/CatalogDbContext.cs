@@ -20,6 +20,7 @@ namespace CatalogContext
 		public DbSet<CatalogBrand> CatalogBrands { get; set; }
 		public DbSet<CatalogType> CatalogTypes { get; set; }
 
+        public DbSet<Product> Products { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
